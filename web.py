@@ -3,13 +3,18 @@ import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import data as d
 import sendEmail
 
+
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
 chrome_path = os.path.abspath("chromedriver")
 
-driver = webdriver.Chrome(chrome_path)
+driver = webdriver.Chrome(chrome_path, chrome_options=options)
 
 driver.maximize_window()
 
