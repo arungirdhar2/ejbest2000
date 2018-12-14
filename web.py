@@ -31,7 +31,6 @@ try:
     )
     element.send_keys(d.taxVersion)
 
-
     element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "button"))
     )
@@ -40,10 +39,18 @@ try:
     element = WebDriverWait(driver, 200).until(
         EC.presence_of_element_located((By.XPATH, "//div[@class='jumbotron']//tbody//tr[1]"))
     )
-    elements = driver.find_elements_by_xpath("//div[@class='jumbotron']//tbody//tr")
-    print(len(elements))
 
-    sendEmail.main("From Web : ",str(len(elements)))
+    elements = WebDriverWait(driver, 200).until(
+        EC.presence_of_all_elements_located((By.XPATH, "//div[@class='jumbotron']//tbody//tr"))
+    )
+
+    # elements = driver.find_elements_by_xpath("//div[@class='jumbotron']//tbody//tr")
+    print(len(elements))
+    myStr = "Total : "+str(len(elements))+"\n"
+    for element in elements:
+        myStr += str(element.text)+"\n"
+    print(myStr)
+    sendEmail.main("From Web : ", myStr)
 
 finally:
     driver.quit()
