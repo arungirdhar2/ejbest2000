@@ -30,16 +30,21 @@ assert ()                 #  If condition false,
 } # Insert a similar assert() function into a script you need to debug.    
 #######################################################################
 	
-assert "pip3 install fabric" $LINENO
+sudo apt update
+assert "sudo apt --assume-yes install python3-pip" $LINENO
+pip3 install fabric
 assert "pip3 install selenium" $LINENO
 #sudo apt-get update
-assert "sudo apt-get install -y libappindicator1 fonts-liberation" $LINENO
-assert "mkdir tempo" $LINENO
+assert "sudo apt-get --assume-yes install -y libappindicator1 fonts-liberation" $LINENO
+assert "mkdir temp" $LINENO
 assert "cd temp" $LINENO
 assert "wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" $LINENO
-assert "sudo dpkg -i google-chrome*.deb" $LINENO
-assert "sudo apt-get -f install" $LINENO
+sudo dpkg -i google-chrome*.deb
+assert "sudo apt-get -f --assume-yes install" $LINENO
 assert "sudo dpkg --configure -a" $LINENO
+assert "cd .." $LINENO
+assert "sudo chmod +x chromedriver" $LINENO
+assert "sudo rm -rf temp" $LINENO
 # The remainder of the script executes only if the "assert" does not fail.
 
 echo "This statement echoes only if the \"assert\" does not fail."
