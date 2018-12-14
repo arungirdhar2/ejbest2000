@@ -20,7 +20,7 @@ class CommandTests(unittest.TestCase):
         print(result)
         #self.assertEqual(result.stdout.strip(), d.verification)
         c.close()
-        sendEmail.main("From Initiate : ",result)
+        sendEmail.main("From Initiate : ",str(result))
 
 
 if __name__ == '__main__':
