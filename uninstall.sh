@@ -44,10 +44,10 @@ assert ()                 #  If condition false,
 #######################################################################
 
 #assert "sudo apt --assume-yes remove python3-pip" $LINENO
-pip3 uninstall fabric
-pip3 uninstall selenium
+sudo pip3 uninstall -y fabric
+sudo pip3 uninstall -y selenium
 assert "sudo rm -rf temp" $LINENO
-assert "sudo rm -rf __pycache__"
+assert "sudo rm -rf __pycache__" $LINENO
 
  The remainder of the script executes only if the "assert" does not fail.
 
