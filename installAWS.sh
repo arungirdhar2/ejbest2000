@@ -37,7 +37,7 @@ assert "tar xf Python-3.6.8rc1.tgz" $LINENO
 assert "cd Python-3.6.8rc1/" $LINENO
 assert "./configure" $LINENO
 assert "make" $LINENO
-assert "sudo make -y install" $LINENO
+assert "sudo make install" $LINENO
 assert "python3 --version" $LINENO
 assert "sudo yum install -y python3-pip" $LINENO
 assert "pip3 --version" $LINENO
@@ -46,7 +46,7 @@ assert "source ./env/bin/activate" $LINENO
 assert "pip3 install fabric" $LINENO
 assert "pip3 install selenium" $LINENO
 assert "wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm" $LINENO
-assert "sudo yum install ./google-chrome-stable_current_*.rpm" $LINENO
+assert "sudo yum install -y ./google-chrome-stable_current_*.rpm" $LINENO
 assert "deactivate" $LINENO
 
 
