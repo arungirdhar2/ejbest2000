@@ -38,6 +38,7 @@ assert "cd Python-3.6.8rc1/" $LINENO
 assert "./configure" $LINENO
 assert "make" $LINENO
 assert "sudo make install" $LINENO
+cd ..
 assert "python3 --version" $LINENO
 assert "sudo yum install -y python3-pip" $LINENO
 assert "pip3 --version" $LINENO
