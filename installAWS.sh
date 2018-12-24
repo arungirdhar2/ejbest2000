@@ -40,8 +40,7 @@ assert "make" $LINENO
 assert "sudo make install" $LINENO
 cd ..
 sleep 3
-#assert "python3 --version" $LINENO
-assert "sudo yum install -y python3-pip" $LINENO
+#assert "python3 --version" $LINEassert "sudo yum install -y python3-pip" $LINENO
 assert "pip3 --version" $LINENO
 assert "python3 -m venv env" $LINENO
 assert "source ./env/bin/activate" $LINENO
